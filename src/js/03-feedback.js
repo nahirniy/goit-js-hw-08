@@ -13,6 +13,7 @@ console.log(userDate);
 function onSubmit(e) {
   e.preventDefault();
   console.log(userDate);
+  localStorage.removeItem(LOCALSTORAGE_KEY);
   form.reset();
 }
 
