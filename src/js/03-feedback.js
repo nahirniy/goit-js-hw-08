@@ -23,10 +23,8 @@ function onSubmit(e) {
 }
 
 function onInput() {
-  const userDate = {
-    email: userEmail.value,
-    message: userMessage.value,
-  };
+  userDate.email = userEmail.value;
+  userDate.message = userMessage.value;
 
   localStorage.setItem(LOCALSTORAGE_KEY, JSON.stringify(userDate));
 }
