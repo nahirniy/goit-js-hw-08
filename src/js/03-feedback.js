@@ -4,17 +4,22 @@ const form = document.querySelector('.feedback-form');
 
 const LOCALSTORAGE_KEY = 'feedback-form-state';
 const { email: userEmail, message: userMessage } = form.elements;
-const userDate = JSON.parse(localStorage.getItem(LOCALSTORAGE_KEY));
+const userDate = JSON.parse(localStorage.getItem(LOCALSTORAGE_KEY)) ?? {};
 
 userEmail.value = userDate.email ?? '';
 userMessage.value = userDate.message ?? '';
-console.log(userDate);
 
 function onSubmit(e) {
   e.preventDefault();
-  console.log(userDate);
-  localStorage.removeItem(LOCALSTORAGE_KEY);
-  form.reset();
+
+  if (userEmail.value && userMessage.value) {
+    console.log(userDate);
+
+    localStorage.removeItem(LOCALSTORAGE_KEY);
+    form.reset();
+  } else {
+    alert('All fields must be filled');
+  }
 }
 
 function onInput() {

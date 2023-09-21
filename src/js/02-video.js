@@ -14,4 +14,4 @@ function onTimeUpDate() {
     .then(currentTime => localStorage.setItem(LOCALSTORAGE_KEY, currentTime));
 }
 
-player.setCurrentTime(localStorage.getItem(LOCALSTORAGE_KEY));
+player.setCurrentTime(localStorage.getItem(LOCALSTORAGE_KEY) ?? 0);
